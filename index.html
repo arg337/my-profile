@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adi Geva | Product Manager &amp; Builder</title>
+<meta name="description" content="Adi Geva: product manager, builder, and MBA student at Cornell SC Johnson College of Business.">
+<meta property="og:title" content="Adi Geva | Product Manager &amp; Builder">
+<meta property="og:description" content="Product manager, builder, and MBA student at Cornell SC Johnson College of Business.">
+<meta property="og:image" content="profile.jpeg">
+<style>
+  :root{
+    --navy:#003049;
+    --navy-soft:#22475c;
+    --sky:#669bbc;
+    --sky-tint:#e3eef5;
+    --red:#c1121f;
+    --wine:#780000;
+    --cream:#fdf0d5;
+    --paper:#fffaf2;
+    --card:#ffffff;
+    --line:#ecdfc6;
+    --muted:#4f6573;
+    --serif: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --radius:18px;
+    --nav-h:64px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 12px);-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--navy);
+    font-family:var(--sans);font-size:17px;line-height:1.65;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 20px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:8px 14px;border-radius:8px;z-index:100}
+  .skip:focus{left:12px}
+  :focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:6px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;height:var(--nav-h);
+    background:rgba(255,250,242,.88);
+    -webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid transparent;transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  .nav.scrolled{border-bottom-color:var(--line);box-shadow:0 6px 20px -16px rgba(0,48,73,.35)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+  .brand{font-family:var(--serif);font-weight:700;font-size:1.25rem;text-decoration:none;letter-spacing:.2px;display:flex;align-items:center;gap:8px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--red);display:inline-block}
+  .links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+  .links a{
+    display:block;text-decoration:none;font-size:.95rem;font-weight:500;color:var(--navy-soft);
+    padding:8px 12px;border-radius:999px;transition:background-color .2s ease,color .2s ease;
+  }
+  .links a:hover{background:var(--sky-tint);color:var(--navy)}
+  .links a.active{background:var(--navy);color:#fff}
+  .menu-btn{
+    display:none;background:none;border:1px solid var(--line);border-radius:12px;
+    width:44px;height:44px;cursor:pointer;color:var(--navy);align-items:center;justify-content:center;
+  }
+  .menu-btn svg{width:22px;height:22px}
+
+  /* ---------- reveal ---------- */
+  .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .4s ease-out,transform .4s ease-out}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .js .reveal{opacity:1;transform:none;transition:none}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 72px;position:relative;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center}
+  .hello{
+    display:inline-flex;align-items:center;gap:8px;background:var(--cream);color:var(--wine);
+    font-weight:600;font-size:.9rem;padding:6px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  .hello .wave{width:8px;height:8px;border-radius:50%;background:var(--red)}
+  h1{font-family:var(--serif);font-size:clamp(2.6rem,7vw,4.4rem);line-height:1.05;margin:0 0 14px;letter-spacing:-.5px}
+  h1 .accent{color:var(--red)}
+  .role{font-size:clamp(1.1rem,2.6vw,1.35rem);font-weight:600;color:var(--navy-soft);margin:0 0 18px}
+  .role .sep{color:var(--sky);margin:0 6px}
+  .tagline{font-size:1.08rem;color:var(--muted);max-width:34em;margin:0 0 28px}
+  .mark{background:linear-gradient(transparent 62%, rgba(102,155,188,.38) 62%);padding:0 2px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;
+    padding:12px 22px;border-radius:999px;border:2px solid var(--navy);transition:transform .2s ease,background-color .2s ease,color .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:var(--navy);color:#fff}
+  .btn.primary:hover{background:var(--wine);border-color:var(--wine)}
+  .btn.ghost{background:transparent;color:var(--navy)}
+  .btn.ghost:hover{background:var(--cream)}
+
+  .photo-wrap{position:relative;justify-self:center;width:min(100%,340px)}
+  .photo-wrap::before{
+    content:"";position:absolute;inset:0;transform:translate(16px,16px);
+    border-radius:var(--radius);background:var(--sky);
+  }
+  .photo-wrap::after{
+    content:"";position:absolute;width:64px;height:64px;border-radius:50%;
+    background:var(--red);top:-18px;left:-18px;z-index:2;opacity:.95;
+  }
+  .photo{
+    position:relative;z-index:1;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;
+    border-radius:var(--radius);background:var(--cream);
+  }
+  .photo-fallback{
+    position:relative;z-index:1;width:100%;aspect-ratio:4/5;border-radius:var(--radius);
+    background:var(--cream);display:none;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:4.5rem;color:var(--navy);
+  }
+  .sticker{
+    position:absolute;z-index:3;right:-6px;bottom:22px;background:var(--paper);color:var(--navy);
+    border:2px solid var(--navy);border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:700;
+    transform:rotate(-4deg);box-shadow:3px 3px 0 var(--navy);
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:76px 0}
+  .alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 8px}
+  h2{font-family:var(--serif);font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.15;margin:0 0 30px}
+  h3{margin:0;font-size:1.15rem;line-height:1.35}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
+  .about-text p{margin:0 0 16px;font-size:1.1rem}
+  .traits{display:grid;gap:12px}
+  .trait{
+    display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);
+    border-radius:14px;padding:14px 16px;
+  }
+  .trait .ic{
+    flex:none;width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:#fff;font-size:1rem;
+  }
+  .trait strong{display:block;font-size:1rem}
+  .trait span{font-size:.92rem;color:var(--muted);line-height:1.5}
+  .bg-red{background:var(--red)}.bg-sky{background:var(--sky)}.bg-navy{background:var(--navy)}.bg-wine{background:var(--wine)}
+  .off{margin-top:22px}
+  .off p{font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .off ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+  .off li{background:var(--cream);color:var(--wine);font-size:.9rem;font-weight:600;padding:5px 12px;border-radius:999px}
+
+  /* experience */
+  .timeline{display:grid;gap:20px}
+  .job{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 28px 24px;position:relative;overflow:hidden;
+    transition:box-shadow .25s ease, transform .25s ease;
+  }
+  .job:hover{box-shadow:0 14px 30px -20px rgba(0,48,73,.45);transform:translateY(-2px)}
+  .job::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--bar,var(--red))}
+  .job-head{display:flex;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;align-items:baseline;margin-bottom:4px}
+  .company{font-family:var(--serif);font-size:1.45rem;font-weight:700;margin:0}
+  .dates{
+    font-size:.88rem;font-weight:700;color:var(--navy);background:var(--sky-tint);
+    padding:4px 12px;border-radius:999px;white-space:nowrap;
+  }
+  .job .title{font-weight:600;color:var(--red);margin:0 0 4px}
+  .job .desc{font-size:.92rem;color:var(--muted);margin:0 0 14px}
+  .job ul{margin:0;padding-left:20px}
+  .job li{margin-bottom:8px}
+  .job li::marker{color:var(--sky)}
+  .job li:last-child{margin-bottom:0}
+
+  /* education */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .edu{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
+  .edu .school{font-family:var(--serif);font-size:1.3rem;font-weight:700;margin:0 0 4px}
+  .edu .degree{font-weight:600;margin:0}
+  .edu .meta{font-size:.9rem;color:var(--muted);margin:2px 0 14px}
+  .honors{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+  .honors li{font-size:.85rem;font-weight:700;padding:5px 12px;border-radius:999px;color:#fff;background:var(--navy)}
+  .honors li.win{background:var(--red)}
+  .edu p.note{margin:0;font-size:.95rem;color:var(--muted)}
+
+  /* skills */
+  .tags{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;list-style:none;margin:0;padding:0}
+  .tags li{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 16px;font-weight:600;font-size:.97rem;
+    display:flex;align-items:center;gap:10px;transition:border-color .2s ease, transform .2s ease;
+  }
+  .tags li:hover{border-color:var(--sky);transform:translateY(-2px)}
+  .tags li::before{content:"";flex:none;width:9px;height:9px;border-radius:3px;background:var(--c,var(--sky))}
+  .tags li:nth-child(4n+1){--c:var(--red)}
+  .tags li:nth-child(4n+2){--c:var(--sky)}
+  .tags li:nth-child(4n+3){--c:var(--navy)}
+  .tags li:nth-child(4n+4){--c:var(--wine)}
+
+  /* contact */
+  .contact{background:var(--navy);color:#fff;text-align:center;padding:84px 0}
+  .contact .eyebrow{color:var(--cream)}
+  .contact h2{color:#fff;margin-bottom:14px}
+  .contact p.lead{max-width:32em;margin:0 auto 30px;color:#d6e4ee}
+  .contact-cards{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+  .ccard{
+    display:flex;align-items:center;gap:12px;text-decoration:none;background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:14px 20px;min-width:0;max-width:100%;
+    transition:background-color .2s ease, transform .2s ease;
+  }
+  .ccard:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+  .ccard .ic{flex:none;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .ccard .ic svg{width:20px;height:20px}
+  .ccard .txt{text-align:left;min-width:0}
+  .ccard small{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#a9c4d6}
+  .ccard span{display:block;font-weight:600;overflow-wrap:anywhere}
+  footer{background:var(--navy);color:#a9c4d6;text-align:center;font-size:.85rem;padding:0 0 32px}
+  footer .wrap{border-top:1px solid rgba(255,255,255,.12);padding-top:24px}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;gap:40px}
+    .photo-wrap{order:-1;width:min(56%,220px);justify-self:start;margin-left:6px}
+    .about-grid,.edu-grid{grid-template-columns:1fr;gap:28px}
+  }
+  @media (max-width:720px){
+    .menu-btn{display:inline-flex}
+    .links{
+      position:absolute;top:var(--nav-h);left:0;right:0;flex-direction:column;gap:2px;
+      background:var(--paper);border-bottom:1px solid var(--line);padding:8px 16px 14px;
+      box-shadow:0 14px 24px -18px rgba(0,48,73,.4);
+      opacity:0;transform:translateY(-6px);pointer-events:none;visibility:hidden;
+      transition:opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+    }
+    .links.open{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .2s ease, transform .2s ease}
+    .links a{padding:12px 14px;border-radius:12px;font-size:1rem}
+  }
+  @media (max-width:520px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    .hero{padding:40px 0 56px}
+    section{padding:56px 0}
+    h2{margin-bottom:22px}
+    .job,.edu{padding:22px 20px 20px 24px}
+    .company{font-size:1.3rem}
+    .tags{grid-template-columns:1fr 1fr;gap:10px}
+    .tags li{font-size:.9rem;padding:11px 12px;gap:8px;align-items:flex-start;line-height:1.35}
+    .tags li::before{margin-top:5px}
+    .btn{flex:1 1 auto;justify-content:center}
+    .ccard{width:100%}
+    .sticker{right:-10px;font-size:.78rem}
+    .photo-wrap::after{width:48px;height:48px;top:-14px;left:-14px}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>Adi Geva</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="hello"><span class="wave" aria-hidden="true"></span>Hi, I'm</span>
+        <h1>Adi Geva<span class="accent">.</span></h1>
+        <p class="role">Product Manager<span class="sep" aria-hidden="true">/</span>Builder<span class="sep" aria-hidden="true">/</span>MBA, Cornell Johnson</p>
+        <p class="tagline">I take products from <span class="mark">zero to one</span>, adapt fast when the ground shifts, and do my best work alongside great people. The big, ambiguous questions are my favorite kind.</p>
+        <div class="cta">
+          <a class="btn primary" href="#experience">See my work</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="photo-wrap reveal">
+        <img class="photo" id="photo" src="profile.jpeg" alt="Portrait of Adi Geva" width="1023" height="1537">
+        <div class="photo-fallback" id="photoFallback" aria-hidden="true">AG</div>
+        <span class="sticker">Cornell MBA '28</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="alt" id="about">
+    <div class="wrap about-grid">
+      <div class="about-text reveal">
+        <p class="eyebrow">About</p>
+        <h2>A builder who loves the messy middle.</h2>
+        <p>Most recently I was Head of Product and a founding team member at Darkboot, where I took a multi-channel AI platform from first idea to launch. Before that I ran delivery projects at Cyberbit and led intelligence and technology teams in Unit 8200.</p>
+        <p>Now I'm an MBA student at Cornell SC Johnson College of Business, learning as much as I can and looking for the next hard, ambiguous problem to build around.</p>
+        <div class="off">
+          <p>Off the clock</p>
+          <ul>
+            <li>40 countries</li>
+            <li>Tennis</li>
+            <li>Painting</li>
+            <li>Photography</li>
+            <li>Film, TV &amp; music</li>
+            <li>Dogs, always</li>
+          </ul>
+        </div>
+      </div>
+      <div class="traits reveal">
+        <div class="trait"><div class="ic bg-red" aria-hidden="true">01</div><div><strong>Builder</strong><span>From user research to MVP to launch, I like owning the whole arc.</span></div></div>
+        <div class="trait"><div class="ic bg-sky" aria-hidden="true">02</div><div><strong>Adapter</strong><span>Intelligence, cybersecurity, AI startups, and now business school.</span></div></div>
+        <div class="trait"><div class="ic bg-navy" aria-hidden="true">03</div><div><strong>People first</strong><span>Engineers, designers, clients, and leadership pulling in one direction.</span></div></div>
+        <div class="trait"><div class="ic bg-wine" aria-hidden="true">04</div><div><strong>Curious</strong><span>Drawn to the big, ambiguous questions and always learning.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Experience</p>
+        <h2>Where I've built things.</h2>
+      </div>
+      <div class="timeline">
+        <article class="job reveal" style="--bar:var(--red)">
+          <div class="job-head">
+            <h3 class="company">Darkboot</h3>
+            <span class="dates">2024 - 2026</span>
+          </div>
+          <p class="title">Head of Product, Founding Team Member</p>
+          <p class="desc">Start-up, multi-channel A2A AI platform for customer engagement and workflow automation. Tel Aviv, Israel.</p>
+          <ul>
+            <li>Led the product's 0-to-1 journey, from ideation and market research through MVP and launch, rallying engineers, a designer, an algorithm specialist, QA, and company leadership.</li>
+            <li>Ran user research across 25 companies and competitive analysis, uncovering the differentiation edge that helped secure the company's first $1.5M+ funding round.</li>
+          </ul>
+        </article>
+
+        <article class="job reveal" style="--bar:var(--sky)">
+          <div class="job-head">
+            <h3 class="company">Cyberbit</h3>
+            <span class="dates">2020 - 2021</span>
+          </div>
+          <p class="title">Project Manager, Delivery Department</p>
+          <p class="desc">Cyber range platform for cybersecurity training and simulation. Raanana, Israel.</p>
+          <ul>
+            <li>Directed a team of five Implementation Engineers, delivering 100+ concurrent projects on schedule for government and private-sector clients, including Accenture and Purdue.</li>
+            <li>Helped establish the company's Customer Success function with the COO and Head of Delivery, increasing subscription renewals by 15%.</li>
+          </ul>
+        </article>
+
+        <article class="job reveal" style="--bar:var(--navy)">
+          <div class="job-head">
+            <h3 class="company">Israel Defense Forces, Unit 8200</h3>
+            <span class="dates">2016 - 2020</span>
+          </div>
+          <p class="title">Intelligence &amp; Technology Team Lead</p>
+          <p class="desc">Israeli National Intelligence SIGINT Unit.</p>
+          <ul>
+            <li>Bridged technology and development teams with analytical intelligence needs, leading a three-person team overseeing work plans for ~40 personnel.</li>
+            <li>Directed 50 cross-functional, high-priority initiatives whose assessments were adopted by senior military leadership; awarded the Unit's Certificate of Excellence.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="education">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Education</p>
+        <h2>Always learning.</h2>
+      </div>
+      <div class="edu-grid">
+        <article class="edu reveal">
+          <h3 class="school">Cornell SC Johnson College of Business</h3>
+          <p class="degree">Master of Business Administration</p>
+          <p class="meta">Ithaca, NY &middot; Class of 2028</p>
+          <ul class="honors">
+            <li>Forté Fellow</li>
+            <li>EMC² Fellow</li>
+            <li class="win">1st place, 2026 Johnson Case Competition</li>
+          </ul>
+          <p class="note">Digital Technology Immersion, High Tech Club, Strategy Tech Club, VC Club, Tennis Club, Association of Veterans.</p>
+        </article>
+        <article class="edu reveal">
+          <h3 class="school">Hebrew University of Jerusalem</h3>
+          <p class="degree">B.Sc. Environmental Economics &amp; Management</p>
+          <p class="meta">Faculty of Agriculture, Food and Environment &middot; Rehovot, Israel &middot; 2024</p>
+          <p class="note">Focused on waste management, financial management, and the hunger-conflict nexus.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Skills</p>
+        <h2>What I bring to the table.</h2>
+      </div>
+      <ul class="tags reveal">
+        <li>0-to-1 Product Development</li>
+        <li>User Research</li>
+        <li>Competitive Analysis</li>
+        <li>MVP Development</li>
+        <li>AI Products</li>
+        <li>QA Process Design</li>
+        <li>Cross-functional Leadership</li>
+        <li>Technical-Business Bridging</li>
+        <li>Process Structuring</li>
+        <li>Navigating Ambiguity</li>
+        <li>Customer Success</li>
+        <li>Project Delivery</li>
+        <li>Team Building &amp; Hiring</li>
+        <li>Hebrew (native)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap reveal">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk.</h2>
+      <p class="lead">Whether it's a product role, a hard problem, or just a good conversation, I'd love to hear from you.</p>
+      <div class="contact-cards">
+        <a class="ccard" href="mailto:arg337@cornell.edu">
+          <span class="ic bg-red" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span class="txt"><small>Email</small><span>arg337@cornell.edu</span></span>
+        </a>
+        <a class="ccard" href="https://www.linkedin.com/in/adi-geva-3a8b041b6/" target="_blank" rel="noopener">
+          <span class="ic bg-sky" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm7 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11Z"/></svg></span>
+          <span class="txt"><small>LinkedIn</small><span>in/adi-geva</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="yr">2026</span> Adi Geva</div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+
+  // photo fallback
+  var img=document.getElementById('photo'), fb=document.getElementById('photoFallback');
+  function useFallback(){ img.style.display='none'; fb.style.display='flex'; }
+  img.addEventListener('error',useFallback);
+  if(img.complete && img.naturalWidth===0) useFallback();
+
+  // reveal on scroll
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+  // mobile menu
+  var btn=document.getElementById('menuBtn'), links=document.getElementById('navLinks');
+  function setMenu(open){
+    links.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }
+  btn.addEventListener('click',function(){ setMenu(!links.classList.contains('open')); });
+  links.addEventListener('click',function(e){ if(e.target.tagName==='A') setMenu(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setMenu(false); });
+  document.addEventListener('click',function(e){ if(!links.contains(e.target) && !btn.contains(e.target)) setMenu(false); });
+
+  // nav shadow + active link
+  var nav=document.getElementById('nav');
+  var navLinks=[].slice.call(links.querySelectorAll('a'));
+  var sections=navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function onScroll(){
+    nav.classList.toggle('scrolled',window.scrollY>8);
+    var pos=window.scrollY+window.innerHeight*0.35, current=-1;
+    sections.forEach(function(s,i){ if(s && s.offsetTop<=pos) current=i; });
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4) current=sections.length-1;
+    navLinks.forEach(function(a,i){ a.classList.toggle('active',i===current); });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
